@@ -9,6 +9,7 @@
     "browser": true,
     "node": true
   },
+  "parser": "babel-eslint",
   "rules": {
     "comma-dangle": 0,
     "no-unused-vars": [
@@ -18,7 +19,15 @@
         "args": "none"
       }
     ],
+    "object-curly-newline": ["error", {
+      "ObjectExpression": { "consistent": true },
+      "ObjectPattern": { "consistent": true },
+      "ImportDeclaration": { "consistent": true },
+      "ExportDeclaration": { "consistent": true }
+    }],
     "import/prefer-default-export": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0
   }
