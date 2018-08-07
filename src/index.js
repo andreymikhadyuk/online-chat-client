@@ -6,6 +6,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import App from './components/App';
 
+import './index.scss';
+
 const defaultState = {};
 
 const store = createStore(

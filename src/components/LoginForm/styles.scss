@@ -1,0 +1,12 @@
+@import '../../consts/styles/mixins';
+
+.login-form {
+  width: 20%;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  @include border;
+}
+
+.login-form__text-input {
+  margin-bottom: 15px;
+}

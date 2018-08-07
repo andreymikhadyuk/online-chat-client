@@ -1,8 +1,9 @@
 import React from 'react';
+import { LoginPage } from '../pages';
 
 const App = () => (
   <div>
-    <h1>App</h1>
+    <LoginPage />
   </div>
 );
 

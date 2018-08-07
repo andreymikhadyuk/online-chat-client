@@ -1,0 +1,21 @@
+@import '../../../consts/styles/variables';
+@import '../../../consts/styles/mixins';
+
+$fontSize: 1.2em;
+$backgroundColor: #fff;
+
+.button {
+  padding: 5px 10px;
+  box-sizing: border-box;
+  font-size: $fontSize;
+  color: $labelColor;
+  background-color: $backgroundColor;
+  transition: 0.4s;
+  @include border;
+
+  &:hover {
+    color: $backgroundColor;
+    background-color: $labelColor;
+    border-color: $labelColor;
+  }
+}

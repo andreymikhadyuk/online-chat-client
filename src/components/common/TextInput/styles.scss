@@ -1,0 +1,25 @@
+@import '../../../consts/styles/variables';
+@import '../../../consts/styles/mixins';
+$inputHeight: 2.2em;
+$inputFontSize: 1em;
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-input__label {
+  font-size: $labelSize;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: $labelColor;
+}
+
+.text-input__input {
+  width: 100%;
+  min-height: $inputHeight;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  font-size: $inputFontSize;
+  @include border;
+}
