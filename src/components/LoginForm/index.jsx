@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TextInput, Button } from '../common';
 import './styles.scss';
 
-const LoginForm = ({ handleChange }) => {
+const LoginForm = ({ handleChange, handleSubmit }) => {
   const newProps = {
     username: {
       label: 'Username',
@@ -20,6 +20,7 @@ const LoginForm = ({ handleChange }) => {
     },
     signIn: {
       text: 'Sign in',
+      onClick: handleSubmit,
     },
   };
   return (
@@ -33,6 +34,7 @@ const LoginForm = ({ handleChange }) => {
 
 LoginForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

@@ -14,11 +14,16 @@ class LoginFormContainer extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
+  };
+
+  handleSubmit = () => {
+    console.log('handleSubmit');
+  };
 
   render() {
     const props = {
       handleChange: this.handleChange,
+      handleSubmit: this.handleSubmit,
     };
 
     return (
