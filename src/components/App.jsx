@@ -1,9 +1,9 @@
 import React from 'react';
-import { LoginPage } from '../pages';
+import { ChatPage } from '../pages';
 
 const App = () => (
   <div>
-    <LoginPage />
+    <ChatPage />
   </div>
 );
 

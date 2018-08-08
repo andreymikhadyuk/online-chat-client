@@ -1,6 +1,23 @@
 @import './variables';
 
-@mixin border {
-  border: 2px solid $borderColor;
+@mixin default-page {
+  height: 100vh;
+  background-color: $mainBackgroundColor;
+}
+
+// Borders
+
+@mixin main-border {
+  border: $defaultBorder;
   border-radius: 8px;
+}
+
+@mixin chat-border {
+  border: $defaultBorder;
+  border-radius: $chatBorderRadius;
+}
+
+@mixin chat-input-border {
+  border-top: $defaultBorder;
+  border-radius: 0 0 $chatBorderRadius $chatBorderRadius;
 }

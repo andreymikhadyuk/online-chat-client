@@ -11,7 +11,7 @@ $backgroundColor: #fff;
   color: $labelColor;
   background-color: $backgroundColor;
   transition: 0.4s;
-  @include border;
+  @include main-border;
 
   &:hover {
     color: $backgroundColor;

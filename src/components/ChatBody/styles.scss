@@ -1,0 +1,29 @@
+@import '../../consts/styles/mixins';
+
+$chatBodyBackgroundColor: #ffffff;
+
+.chat-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $chatBodyBackgroundColor;
+  @include chat-border;
+}
+
+.chat-body__main {
+  padding: 30px;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.chat-input {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  background-color: #FAFBFC;
+  @include chat-input-border;
+}

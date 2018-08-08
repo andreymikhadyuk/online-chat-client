@@ -4,3 +4,7 @@ $labelColor: #d3d9de;
 $labelSize: 1em;
 
 $borderColor: $labelColor;
+$borderSize: 1px;
+$defaultBorder: $borderSize solid $borderColor;
+
+$chatBorderRadius: 3px;

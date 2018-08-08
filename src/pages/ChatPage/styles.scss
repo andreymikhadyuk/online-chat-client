@@ -1,0 +1,14 @@
+@import '../../consts/styles/mixins';
+
+.chat-page {
+  display: flex;
+  justify-content: center;
+  @include default-page;
+}
+
+.chat-page__chat-body {
+  width: 40%;
+  max-width: 550px;
+  box-sizing: border-box;
+  padding: 15px 0;
+}

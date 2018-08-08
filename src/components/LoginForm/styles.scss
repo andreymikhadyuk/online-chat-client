@@ -4,7 +4,7 @@
   width: 20%;
   padding: 30px 20px;
   background-color: #ffffff;
-  @include border;
+  @include main-border;
 }
 
 .login-form__text-input {

@@ -1,9 +1,8 @@
-@import '../../consts/styles/variables';
+@import '../../consts/styles/mixins';
 
 .login-page {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $mainBackgroundColor;
+  @include default-page;
 }
