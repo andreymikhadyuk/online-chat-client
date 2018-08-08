@@ -1,0 +1,14 @@
+@import '../../../consts/styles/mixins';
+
+.text-area {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 10px 14px;
+  line-height: 17px;
+  resize: none;
+  box-sizing: border-box;
+  font-size: 13px;
+  word-wrap: break-word;
+  @include main-border;
+}

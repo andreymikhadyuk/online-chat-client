@@ -1,0 +1,12 @@
+@import '../../consts/styles/mixins';
+
+.chat-input {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  background-color: #FAFBFC;
+  @include chat-input-border;
+}

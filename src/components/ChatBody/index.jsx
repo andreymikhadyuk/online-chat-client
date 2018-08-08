@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ChatInput from '../../containers/ChatInput';
 import './styles.scss';
 
 const ChatBody = ({ setMessagesContainerRef }) => (
@@ -7,7 +8,7 @@ const ChatBody = ({ setMessagesContainerRef }) => (
     <div className="chat-body__main" ref={setMessagesContainerRef}>
       <h1>Chat Body</h1>
     </div>
-    <section className="chat-input" />
+    <ChatInput />
   </div>
 );
 
