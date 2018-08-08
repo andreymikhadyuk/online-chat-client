@@ -1,0 +1,17 @@
+import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from './types';
+
+const initMessageSending = () => ({ type: SEND_MESSAGE_INIT });
+
+const onSuccessMessageSend = message => ({
+  type: SEND_MESSAGE_SUCCESS,
+  payload: message,
+});
+
+const onFailMessageSend = () => ({ type: SEND_MESSAGE_FAIL });
+
+const sendMessage = message => (dispatch) => {
+  dispatch(initMessageSending());
+  dispatch(onSuccessMessageSend(message));
+};
+
+export default sendMessage;
