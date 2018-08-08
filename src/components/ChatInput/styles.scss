@@ -2,6 +2,7 @@
 
 .chat-input {
   width: 100%;
+  display: flex;
   padding: 12px 20px;
   box-sizing: border-box;
   position: relative;
@@ -9,4 +10,8 @@
   bottom: 0;
   background-color: #FAFBFC;
   @include chat-input-border;
+}
+
+.chat-input__submit {
+  margin-left: 10px;
 }

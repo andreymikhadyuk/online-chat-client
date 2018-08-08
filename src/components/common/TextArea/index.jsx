@@ -11,11 +11,13 @@ const TextArea = props => (
 );
 
 TextArea.propTypes = {
+  value: PropTypes.string,
   placeholder: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
 TextArea.defaultProps = {
+  value: '',
   placeholder: '',
 };
 

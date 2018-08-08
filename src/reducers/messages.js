@@ -21,8 +21,8 @@ const onSuccessMessageSend = ({ meta, data }, { payload }) => {
     isSending: false,
   };
   const newData = [
+    payload,
     ...data,
-    payload
   ];
   return {
     meta: newMeta,
