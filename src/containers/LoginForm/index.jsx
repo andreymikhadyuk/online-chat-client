@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import LoginForm from '../../components/LoginForm';
+import { login } from '../../actions';
 
 class LoginFormContainer extends Component {
   constructor(props) {
@@ -17,7 +20,8 @@ class LoginFormContainer extends Component {
   };
 
   handleSubmit = () => {
-    console.log('handleSubmit');
+    const { username, password } = this.state;
+    this.props.login({ username, password });
   };
 
   render() {
@@ -32,4 +36,8 @@ class LoginFormContainer extends Component {
   }
 }
 
-export default LoginFormContainer;
+LoginFormContainer.propTypes = {
+  login: PropTypes.func.isRequired,
+};
+
+export default connect(null, { login })(LoginFormContainer);

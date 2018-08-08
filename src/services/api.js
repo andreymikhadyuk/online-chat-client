@@ -1,18 +1,10 @@
-import request from 'request';
+import axios from 'axios';
+import config from '../config';
 
-const createUrl = endPoint => `${endPoint}`;
+const backendHost = config.get('backendHost');
 
-const post = (endPoint, params = {}) => {
-  const { data } = params;
-  const options = {
-    url: createUrl(endPoint),
-    form: data,
-  };
-  return new Promise((resolve, reject) => {
-    request.post(options, (err, response, body) => {
-      if (err) return reject(err);
-    });
-  });
-};
+const createUrl = endPoint => `${backendHost}${endPoint}`;
+
+const post = (endPoint, data, headers = {}) => axios.post(createUrl(endPoint), data, { headers });
 
 export { post };
