@@ -1,0 +1,16 @@
+@import '../../consts/styles/variables';
+
+.message {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+}
+
+.message__meta {
+  margin-bottom: 5px;
+}
+
+.message__user {
+  color: #42648b;
+  font-weight: bold;
+}
