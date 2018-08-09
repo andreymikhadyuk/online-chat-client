@@ -7,4 +7,9 @@ const createUrl = endPoint => `${backendHost}${endPoint}`;
 
 const post = (endPoint, data, headers = {}) => axios.post(createUrl(endPoint), data, { headers });
 
-export { post };
+export {
+  post,
+
+  // For tests
+  createUrl,
+};

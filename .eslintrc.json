@@ -1,13 +1,18 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended"
+  ],
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "jest"
   ],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "parser": "babel-eslint",
   "rules": {

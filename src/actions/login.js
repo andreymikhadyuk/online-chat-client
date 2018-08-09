@@ -21,3 +21,10 @@ const login = data => async (dispatch) => {
 };
 
 export default login;
+
+export {
+  // For tests
+  initLogin,
+  onSuccessLogin,
+  onFailLogin,
+};

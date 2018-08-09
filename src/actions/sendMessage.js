@@ -15,3 +15,10 @@ const sendMessage = message => (dispatch) => {
 };
 
 export default sendMessage;
+
+export {
+  // For tests
+  initMessageSending,
+  onSuccessMessageSend,
+  onFailMessageSend,
+};
