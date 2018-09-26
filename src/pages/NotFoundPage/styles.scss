@@ -1,0 +1,26 @@
+@import '../../consts/styles/mixins';
+
+.not-found-page {
+  background-color: #361887;
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-page__404 {
+  font-size: 17em;
+  font-weight: bold;
+}
+
+.not-found-page__the-page {
+  font-size: 7em;
+  text-transform: uppercase;
+}
+
+.not-found-page__was-not-found {
+  font-size: 1.7em;
+  text-transform: uppercase;
+}
