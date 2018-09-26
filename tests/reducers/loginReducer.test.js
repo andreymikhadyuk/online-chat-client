@@ -1,18 +1,19 @@
 import deepFreeze from 'deep-freeze';
-import { LOGIN_INIT, LOGIN_SUCCESS, LOGIN_FAIL } from '../../src/actions/types';
-import { initLogin, onSuccessLogin, onFailLogin } from '../../src/actions/login';
-import reducer from '../../src/reducers/login';
+import { LOGIN } from '../../src/actions/actionTypes';
+import { createLoginAction } from '../../src/actions/loginActions';
+import reducer from '../../src/reducers/loginReducer';
 
 const initialState = {
   isLoading: false,
-  token: '',
+  token: null,
 };
 
-const getAfterLoginInitializingState = () => reducer(deepFreeze(initialState), initLogin());
+const getAfterLoginInitializingState = () =>
+  reducer(deepFreeze(initialState), createLoginAction(null, { init: true }));
 
-describe('reducer login.js', () => {
-  describe(`action type - ${LOGIN_INIT}`, () => {
-    it('should make login initializing', () => {
+describe('loginReducer.js', () => {
+  describe(`action type - ${LOGIN} - initialization`, () => {
+    it('should make login initialization', () => {
       const expectedState = {
         ...initialState,
         isLoading: true,
@@ -22,13 +23,13 @@ describe('reducer login.js', () => {
     });
   });
 
-  describe(`action type - ${LOGIN_SUCCESS}`, () => {
+  describe(`action type - ${LOGIN} - success`, () => {
     const token = 'Bearer some_token';
     let newState;
 
     beforeEach(() => {
       const afterLoginInitializingState = getAfterLoginInitializingState();
-      newState = reducer(deepFreeze(afterLoginInitializingState), onSuccessLogin(token));
+      newState = reducer(deepFreeze(afterLoginInitializingState), createLoginAction(token));
     });
 
     it('should update state to the state of successful login', () => {
@@ -40,13 +41,13 @@ describe('reducer login.js', () => {
     });
   });
 
-  describe(`action type - ${LOGIN_FAIL}`, () => {
+  describe(`action type - ${LOGIN} - failure`, () => {
     let newState;
     let afterLoginInitializingState;
 
     beforeEach(() => {
       afterLoginInitializingState = getAfterLoginInitializingState();
-      newState = reducer(deepFreeze(afterLoginInitializingState), onFailLogin());
+      newState = reducer(deepFreeze(afterLoginInitializingState), createLoginAction(new Error()));
     });
 
     it('should update state to the state of failed login', () => {

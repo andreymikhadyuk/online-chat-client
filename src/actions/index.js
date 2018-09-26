@@ -1,4 +1,4 @@
-import login from './login';
+import login from './loginActions';
 import sendMessage from './sendMessage';
 
 export {

@@ -1,17 +1,15 @@
-import { LOGIN_INIT, LOGIN_SUCCESS, LOGIN_FAIL } from './types';
+import { createAction } from 'redux-actions';
+import { LOGIN } from './actionTypes';
 // import { post } from '../services/api';
 
-const initLogin = () => ({ type: LOGIN_INIT });
-
-const onSuccessLogin = token => ({
-  type: LOGIN_SUCCESS,
-  payload: { token },
-});
-
-const onFailLogin = () => ({ type: LOGIN_FAIL });
+const createLoginAction = createAction(
+  LOGIN,
+  token => ({ token }),
+  (token, meta = { init: false }) => ({ init: meta.init })
+);
 
 const login = data => async (dispatch) => {
-  dispatch(initLogin());
+  dispatch(createLoginAction(null, { init: true }));
   // try {
   //   const respone = await post('/api/login', { data });
   //   dispatch(onSuccessLogin('Bearer token'));
@@ -24,7 +22,5 @@ export default login;
 
 export {
   // For tests
-  initLogin,
-  onSuccessLogin,
-  onFailLogin,
+  createLoginAction,
 };

@@ -1,4 +1,4 @@
-import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/types';
+import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/actionTypes';
 import { initMessageSending, onSuccessMessageSend, onFailMessageSend } from '../../src/actions/sendMessage';
 
 describe('action creators sendMessage.js', () => {

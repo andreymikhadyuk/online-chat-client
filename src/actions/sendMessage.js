@@ -1,4 +1,4 @@
-import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from './types';
+import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from './actionTypes';
 
 const initMessageSending = () => ({ type: SEND_MESSAGE_INIT });
 
