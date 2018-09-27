@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TextInput, Button } from '../common';
 import './styles.scss';
 
-const LoginForm = ({ handleChange, handleSubmit }) => {
+const LoginForm = ({ isLoading, handleChange, handleSubmit }) => {
   const newProps = {
     username: {
       label: 'Username',
@@ -21,6 +21,7 @@ const LoginForm = ({ handleChange, handleSubmit }) => {
     signIn: {
       text: 'Sign in',
       onClick: handleSubmit,
+      disabled: isLoading,
     },
   };
   return (
@@ -33,6 +34,7 @@ const LoginForm = ({ handleChange, handleSubmit }) => {
 };
 
 LoginForm.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
 };

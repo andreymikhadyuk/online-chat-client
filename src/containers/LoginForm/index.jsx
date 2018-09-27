@@ -26,6 +26,7 @@ class LoginFormContainer extends Component {
 
   render() {
     const props = {
+      isLoading: this.props.isLoading,
       handleChange: this.handleChange,
       handleSubmit: this.handleSubmit,
     };
@@ -37,7 +38,12 @@ class LoginFormContainer extends Component {
 }
 
 LoginFormContainer.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   login: PropTypes.func.isRequired,
 };
 
-export default connect(null, { login })(LoginFormContainer);
+const mapStateToProps = state => ({
+  isLoading: state.login.isLoading,
+});
+
+export default connect(mapStateToProps, { login })(LoginFormContainer);

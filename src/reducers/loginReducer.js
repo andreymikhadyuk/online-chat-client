@@ -5,21 +5,18 @@ const initialState = {
   token: null,
 };
 
-const initLogin = state => ({
-  ...state,
+const initLogin = () => ({
+  ...initialState,
   isLoading: true,
-  token: null,
 });
 
 const loginSuccess = (state, { payload: { token } }) => ({
-  ...state,
   isLoading: false,
   token,
 });
 
-const loginFailure = state => ({
-  ...state,
-  isLoading: false,
+const loginFailure = () => ({
+  ...initialState,
 });
 
 const reducer = (state = initialState, action) => {
@@ -27,10 +24,10 @@ const reducer = (state = initialState, action) => {
     return state;
   }
   if (action.error) {
-    return loginFailure(state);
+    return loginFailure();
   }
   if (action.meta.init) {
-    return initLogin(state);
+    return initLogin();
   }
   return loginSuccess(state, action);
 };

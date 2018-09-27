@@ -19,3 +19,9 @@ $backgroundColor: #fff;
     border-color: $labelColor;
   }
 }
+
+.button_disabled {
+  color: $backgroundColor;
+  background-color: $labelColor;
+  border-color: $labelColor;
+}

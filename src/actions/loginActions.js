@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
+import { get } from 'lodash';
 import { LOGIN } from './actionTypes';
-// import { post } from '../services/api';
+import { post } from '../services/api';
 
 const createLoginAction = createAction(
   LOGIN,
@@ -8,14 +9,20 @@ const createLoginAction = createAction(
   (token, meta = { init: false }) => ({ init: meta.init })
 );
 
-const login = data => async (dispatch) => {
+/**
+ * @param data - { username, password }
+ */
+const login = data => (dispatch) => {
   dispatch(createLoginAction(null, { init: true }));
-  // try {
-  //   const respone = await post('/api/login', { data });
-  //   dispatch(onSuccessLogin('Bearer token'));
-  // } catch (err) {
-  //   dispatch(onFailLogin());
-  // }
+  post('/api/login', data)
+    .then((response) => {
+      const token = get(response, 'data.token');
+      dispatch(createLoginAction(token));
+      localStorage.setItem('token', token);
+    })
+    .catch((error) => {
+      dispatch(createLoginAction(error));
+    });
 };
 
 export default login;
