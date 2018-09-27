@@ -1,13 +1,54 @@
-@import '../../consts/styles/mixins';
+$border: 2px solid #ffffff;
+
+@mixin wrapper-lines {
+  content: '';
+  position: absolute;
+  transition: 0.2s;
+}
 
 .not-found-page {
   background-color: #361887;
   height: 100vh;
   color: white;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-page__wrapper {
+  padding: 5em;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  &:before {
+    top: 5%;
+    right: 3%;
+    bottom: 5%;
+    left: 3%;
+    border-top: $border;
+    border-bottom: $border;
+    @include wrapper-lines;
+    transform: scaleX(0);
+  }
+
+  &:after {
+    top: 3%;
+    right: 5%;
+    bottom: 3%;
+    left: 5%;
+    border-left: $border;
+    border-right: $border;
+    @include wrapper-lines;
+    transform: scaleY(0);
+  }
+
+  &:hover:before,
+  &:hover:after {
+    transform: scale(1);
+  }
 }
 
 .not-found-page__404 {
