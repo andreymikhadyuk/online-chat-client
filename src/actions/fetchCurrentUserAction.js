@@ -14,7 +14,7 @@ const fetchCurrentUserSuccess = user => ({
 
 const fetchCurrentUserFail = () => ({ type: FETCH_CURRENT_USER_FAIL });
 
-const fetchCurrentUser = () => (dispatch, getState) => {
+const fetchCurrentUserAction = () => (dispatch, getState) => {
   dispatch(initCurrentUserFetching());
   UserService.fetchCurrentUser();
 };

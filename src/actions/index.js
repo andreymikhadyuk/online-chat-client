@@ -1,5 +1,5 @@
-import login from './loginActions';
-import sendMessage from './sendMessage';
+import login from './loginAction';
+import sendMessage from './sendMessageAction';
 
 export {
   login,

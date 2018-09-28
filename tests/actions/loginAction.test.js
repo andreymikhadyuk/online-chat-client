@@ -1,15 +1,15 @@
 import { LOGIN } from '../../src/actions/actionTypes';
-import { createLoginAction } from '../../src/actions/loginActions';
+import { loginAction } from '../../src/actions/loginAction';
 
-describe('loginActions.js', () => {
-  describe('createLoginAction', () => {
+describe('loginAction.js', () => {
+  describe('loginAction', () => {
     it('should create action for login initialize', () => {
       const expectedAction = {
         type: LOGIN,
         payload: { token: null },
         meta: { init: true },
       };
-      const result = createLoginAction(null, { init: true });
+      const result = loginAction(null, { init: true });
       expect(result).toEqual(expectedAction);
     });
 
@@ -20,7 +20,7 @@ describe('loginActions.js', () => {
         payload: { token },
         meta: { init: false },
       };
-      const result = createLoginAction(token);
+      const result = loginAction(token);
       expect(result).toEqual(expectedAction);
     });
 
@@ -32,7 +32,7 @@ describe('loginActions.js', () => {
         error: true,
         meta: { init: false },
       };
-      const result = createLoginAction(error);
+      const result = loginAction(error);
       expect(result).toEqual(expectedAction);
     });
   });

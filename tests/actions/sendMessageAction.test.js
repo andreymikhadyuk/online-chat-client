@@ -1,7 +1,7 @@
 import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/actionTypes';
-import { initMessageSending, onSuccessMessageSend, onFailMessageSend } from '../../src/actions/sendMessage';
+import { initMessageSending, onSuccessMessageSend, onFailMessageSend } from '../../src/actions/sendMessageAction';
 
-describe('action creators sendMessage.js', () => {
+describe('sendMessageAction.js', () => {
   describe('initMessageSending', () => {
     it('should return correct action', () => {
       const expectedAction = { type: SEND_MESSAGE_INIT };

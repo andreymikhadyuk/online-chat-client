@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { LOGIN } from '../../src/actions/actionTypes';
-import { createLoginAction } from '../../src/actions/loginActions';
+import { loginAction } from '../../src/actions/loginAction';
 import reducer from '../../src/reducers/loginReducer';
 
 const initialState = {
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const getAfterLoginInitializingState = () =>
-  reducer(deepFreeze(initialState), createLoginAction(null, { init: true }));
+  reducer(deepFreeze(initialState), loginAction(null, { init: true }));
 
 describe('loginReducer.js', () => {
   describe(`action type - ${LOGIN} - initialization`, () => {
@@ -29,7 +29,7 @@ describe('loginReducer.js', () => {
 
     beforeEach(() => {
       const afterLoginInitializingState = getAfterLoginInitializingState();
-      newState = reducer(deepFreeze(afterLoginInitializingState), createLoginAction(token));
+      newState = reducer(deepFreeze(afterLoginInitializingState), loginAction(token));
     });
 
     it('should update state to the state of successful login', () => {
@@ -47,7 +47,7 @@ describe('loginReducer.js', () => {
 
     beforeEach(() => {
       afterLoginInitializingState = getAfterLoginInitializingState();
-      newState = reducer(deepFreeze(afterLoginInitializingState), createLoginAction(new Error()));
+      newState = reducer(deepFreeze(afterLoginInitializingState), loginAction(new Error()));
     });
 
     it('should update state to the state of failed login', () => {
