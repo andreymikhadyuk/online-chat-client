@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
 import { get } from 'lodash';
 import { LOGIN } from './actionTypes';
-import { post } from '../services/api';
+import { post } from '../services/ApiService';
 
 const createLoginAction = createAction(
   LOGIN,

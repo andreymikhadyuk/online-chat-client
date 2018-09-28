@@ -1,9 +1,9 @@
-import { createUrl } from '../../src/services/api';
+import { createUrl } from '../../src/services/ApiService';
 import config from '../../src/config';
 
 const backendHost = config.get('backendHost');
 
-describe('api.js', () => {
+describe('ApiService.js', () => {
   describe('createUrl', () => {
     it('should return correct url', () => {
       const endPoint = '/api/messages';
