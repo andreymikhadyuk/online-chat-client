@@ -3,7 +3,7 @@ import {
   FETCH_CURRENT_USER_SUCCESS,
   FETCH_CURRENT_USER_FAIL,
 } from './actionTypes';
-import UserService from '../services/UserService';
+import { UserService } from '../services';
 
 const initCurrentUserFetching = () => ({ type: FETCH_CURRENT_USER_INIT });
 
@@ -12,9 +12,14 @@ const fetchCurrentUserSuccess = user => ({
   payload: user,
 });
 
-const fetchCurrentUserFail = () => ({ type: FETCH_CURRENT_USER_FAIL });
+const fetchCurrentUserFail = error => ({
+  type: FETCH_CURRENT_USER_FAIL,
+  payload: error,
+});
 
-const fetchCurrentUserAction = () => (dispatch, getState) => {
+const fetchCurrentUser = () => (dispatch, getState) => {
   dispatch(initCurrentUserFetching());
-  UserService.fetchCurrentUser();
+// UserService.fetchCurrentUser();
 };
+
+export default fetchCurrentUser;

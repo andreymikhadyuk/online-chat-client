@@ -1,3 +1,7 @@
 import ApiService from './ApiService';
 
-export const fetchCurrentUser = () => ApiService.get('/api/me');
+const fetchCurrentUser = () => ApiService.get('/api/me');
+
+export default {
+  fetchCurrentUser,
+};

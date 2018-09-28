@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { LOGIN } from './actionTypes';
-import { post } from '../services/ApiService';
+import { ApiService } from '../services';
 
 const loginAction = createAction(
   LOGIN,
@@ -14,7 +14,7 @@ const loginAction = createAction(
  */
 const login = data => (dispatch) => {
   dispatch(loginAction(null, { init: true }));
-  post('/api/login', data)
+  ApiService.post('/api/login', data)
     .then((response) => {
       const token = get(response, 'data.token');
       dispatch(loginAction(token));

@@ -34,10 +34,12 @@ const post = (endPoint, data, headers = {}) => {
   return axios.post(url, data, { headers: newHeaders });
 };
 
-export {
+export default {
   get,
   post,
+};
 
-  // For tests
+// For tests
+export {
   createUrl,
 };
