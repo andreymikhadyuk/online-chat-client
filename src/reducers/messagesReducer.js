@@ -1,7 +1,15 @@
-import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../actions/actionTypes';
+import {
+  SEND_MESSAGE_INIT,
+  SEND_MESSAGE_SUCCESS,
+  SEND_MESSAGE_FAIL,
+  FETCH_MESSAGES_INIT,
+  FETCH_MESSAGES_SUCCESS,
+  FETCH_MESSAGES_FAIL,
+} from '../actions/actionTypes';
 
 const initialState = {
   meta: {
+    isLoading: false,
     isSending: false,
   },
   data: [],
@@ -38,6 +46,33 @@ const onFailMessageSend = state => ({
   },
 });
 
+const initMessagesFetching = state => ({
+  ...state,
+  meta: {
+    ...state.meta,
+    isLoading: true,
+  },
+});
+
+const fetchMessagesSuccess = ({ meta, data }, { payload }) => {
+  const newMeta = {
+    ...meta,
+    isLoading: false,
+  };
+  return {
+    meta: newMeta,
+    data: [...payload],
+  };
+};
+
+const fetchMessagesFail = state => ({
+  ...state,
+  meta: {
+    ...state.meta,
+    isLoading: false,
+  },
+});
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE_INIT:
@@ -46,6 +81,12 @@ const reducer = (state = initialState, action) => {
       return onSuccessMessageSend(state, action);
     case SEND_MESSAGE_FAIL:
       return onFailMessageSend(state);
+    case FETCH_MESSAGES_INIT:
+      return initMessagesFetching(state);
+    case FETCH_MESSAGES_SUCCESS:
+      return fetchMessagesSuccess(state, action);
+    case FETCH_MESSAGES_FAIL:
+      return fetchMessagesFail(state, action);
     default:
       return state;
   }
