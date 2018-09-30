@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions';
 import get from 'lodash/get';
+import { push } from 'react-router-redux';
 import { LOGIN } from './actionTypes';
 import { ApiService } from '../services';
 
@@ -19,6 +20,7 @@ const login = data => (dispatch) => {
       const token = get(response, 'data.token');
       dispatch(loginAction(token));
       localStorage.setItem('token', token);
+      dispatch(push('/chat'));
     })
     .catch((error) => {
       dispatch(loginAction(error));
