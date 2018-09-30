@@ -1,3 +1,5 @@
+import { push } from 'react-router-redux';
+import get from 'lodash/get';
 import {
   FETCH_CURRENT_USER_INIT,
   FETCH_CURRENT_USER_SUCCESS,
@@ -17,9 +19,23 @@ const fetchCurrentUserFail = error => ({
   payload: error,
 });
 
-const fetchCurrentUser = () => (dispatch, getState) => {
+const fetchCurrentUser = () => (dispatch) => {
   dispatch(initCurrentUserFetching());
-// UserService.fetchCurrentUser();
+  new Promise((resolve, reject) => {
+    if (localStorage.getItem('token')) {
+      resolve();
+    } else {
+      reject(new Error());
+    }
+  })
+    .then(() => UserService.fetchCurrentUser())
+    .then((response) => {
+      dispatch(fetchCurrentUserSuccess(get(response, 'data.user')));
+    })
+    .catch((error) => {
+      dispatch(fetchCurrentUserFail(error));
+      dispatch(push('/login'));
+    });
 };
 
 export default fetchCurrentUser;
