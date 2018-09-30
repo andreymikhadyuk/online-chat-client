@@ -10,11 +10,24 @@
   margin-bottom: 5px;
 }
 
+.message__meta_right {
+  text-align: right;
+}
+
 .message__user {
   color: #42648b;
   font-weight: bold;
 }
 
+.message__content_right {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .message__text {
   word-wrap: break-word;
+}
+
+.message__text_right {
+  min-width: 0;
 }
