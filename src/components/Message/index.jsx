@@ -6,7 +6,7 @@ import './styles.scss';
 const Message = ({ user, text, isFromActiveUser }) => (
   <section className="message">
     <div className={classNames('message__meta', { message__meta_right: isFromActiveUser })}>
-      <span className="message__user">{user}</span>
+      <span className="message__user">{user.username}</span>
     </div>
     <div className={classNames('message__content', { message__content_right: isFromActiveUser })}>
       <span className={classNames('message__text', { message__text_right: isFromActiveUser })}>
@@ -17,13 +17,15 @@ const Message = ({ user, text, isFromActiveUser }) => (
 );
 
 Message.propTypes = {
-  user: PropTypes.string,
+  user: PropTypes.object,
   text: PropTypes.string,
   isFromActiveUser: PropTypes.bool,
 };
 
 Message.defaultProps = {
-  user: 'Anonymous',
+  user: {
+    username: 'Anonymous',
+  },
   text: 'Empty message',
   isFromActiveUser: false,
 };

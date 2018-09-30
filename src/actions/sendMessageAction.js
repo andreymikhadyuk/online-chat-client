@@ -17,7 +17,7 @@ const sendMessage = message => (dispatch, getState) => {
   dispatch(initMessageSending());
   MessageService.sendMessage(message)
     .then(() => {
-      dispatch(sendMessageSuccess({ ...message, user: getState().user.data.username }));
+      dispatch(sendMessageSuccess({ ...message, user: getState().user.data }));
     })
     .catch((error) => {
       dispatch(sendMessageFail(error));
