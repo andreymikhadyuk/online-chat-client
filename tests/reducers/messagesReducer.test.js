@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze';
 import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/actionTypes';
-import { initMessageSending, onSuccessMessageSend, onFailMessageSend } from '../../src/actions/sendMessageAction';
+import { initMessageSending, sendMessageSuccess, sendMessageFail } from '../../src/actions/sendMessageAction';
 import reducer from '../../src/reducers/messagesReducer';
 
 const initialState = {
@@ -47,7 +47,7 @@ describe('reducer messages.js', () => {
 
     beforeEach(() => {
       const afterInitSendingState = getAfterSendInitializingState();
-      newState = reducer(deepFreeze(afterInitSendingState), onSuccessMessageSend(message));
+      newState = reducer(deepFreeze(afterInitSendingState), sendMessageSuccess(message));
     });
 
     it('should update meta to the state of successful sending', () => {
@@ -68,7 +68,7 @@ describe('reducer messages.js', () => {
 
     beforeEach(() => {
       const afterInitSendingState = getAfterSendInitializingState();
-      newState = reducer(deepFreeze(afterInitSendingState), onFailMessageSend());
+      newState = reducer(deepFreeze(afterInitSendingState), sendMessageFail());
     });
 
     it('should update meta to the failed sending state', () => {

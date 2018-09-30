@@ -1,5 +1,5 @@
 import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/actionTypes';
-import { initMessageSending, onSuccessMessageSend, onFailMessageSend } from '../../src/actions/sendMessageAction';
+import { initMessageSending, sendMessageSuccess, sendMessageFail } from '../../src/actions/sendMessageAction';
 
 describe('sendMessageAction.js', () => {
   describe('initMessageSending', () => {
@@ -10,22 +10,22 @@ describe('sendMessageAction.js', () => {
     });
   });
 
-  describe('onSuccessMessageSend', () => {
+  describe('sendMessageSuccess', () => {
     it('should return correct action', () => {
       const message = { text: 'new message' };
       const expectedAction = {
         type: SEND_MESSAGE_SUCCESS,
         payload: message,
       };
-      const result = onSuccessMessageSend(message);
+      const result = sendMessageSuccess(message);
       expect(result).toEqual(expectedAction);
     });
   });
 
-  describe('onFailMessageSend', () => {
+  describe('sendMessageFail', () => {
     it('should return correct action', () => {
       const expectedAction = { type: SEND_MESSAGE_FAIL };
-      const result = onFailMessageSend();
+      const result = sendMessageFail();
       expect(result).toEqual(expectedAction);
     });
   });

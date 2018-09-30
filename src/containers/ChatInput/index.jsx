@@ -19,9 +19,10 @@ class ChatInputContainer extends Component {
   };
 
   handleSubmit = () => {
-    const { message } = this.state;
-    if (message) {
-      this.props.sendMessage({ text: message });
+    const { message = '' } = this.state;
+    const messageForSave = message.trim();
+    if (messageForSave) {
+      this.props.sendMessage({ text: messageForSave, createdAt: new Date().getTime() });
       this.setState({ message: '' });
     }
   };
