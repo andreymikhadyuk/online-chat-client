@@ -1,5 +1,8 @@
 @import '../../consts/styles/variables';
 
+$activeUserColor: #42648b;
+$timeColorForActiveUser: lighten($activeUserColor, 10%);
+
 .message {
   display: flex;
   flex-direction: column;
@@ -15,8 +18,15 @@
 }
 
 .message__user {
-  color: #42648b;
+  color: $activeUserColor;
   font-weight: bold;
+}
+
+.message__time {
+  margin-left: 0.5em;
+  font-size: 0.9em;
+  font-style: italic;
+  color: $timeColorForActiveUser;
 }
 
 .message__content_right {
