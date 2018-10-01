@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import { sendMessage } from '../../actions';
 import ChatInput from '../../components/ChatInput';
 
@@ -22,7 +23,7 @@ class ChatInputContainer extends Component {
     const { message = '' } = this.state;
     const messageForSave = message.trim();
     if (messageForSave) {
-      this.props.sendMessage({ text: messageForSave, createdAt: new Date().getTime() });
+      this.props.sendMessage({ text: messageForSave, createdAt: moment().valueOf() });
       this.setState({ message: '' });
     }
   };
