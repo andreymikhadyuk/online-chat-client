@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
-import { LOGIN } from '../../src/actions/actionTypes';
-import { loginAction } from '../../src/actions/loginAction';
-import reducer from '../../src/reducers/loginReducer';
+import { LOGIN } from 'actions/actionTypes';
+import { loginAction } from 'actions/loginAction';
+import reducer from 'reducers/loginReducer';
 
 const initialState = {
   isLoading: false,

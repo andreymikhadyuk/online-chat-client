@@ -1,5 +1,5 @@
-import { LOGIN } from '../../src/actions/actionTypes';
-import { loginAction } from '../../src/actions/loginAction';
+import { LOGIN } from 'actions/actionTypes';
+import { loginAction } from 'actions/loginAction';
 
 describe('loginAction.js', () => {
   describe('loginAction', () => {

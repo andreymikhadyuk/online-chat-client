@@ -39,5 +39,12 @@
     "react/destructuring-assignment": 0,
     "react/no-did-update-set-state": 0,
     "implicit-arrow-linebreak": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
   }
 }

@@ -1,5 +1,5 @@
-import { createUrl } from '../../src/services/ApiService';
-import config from '../../src/config';
+import { createUrl } from 'services/ApiService';
+import config from 'config';
 
 const backendHost = config.get('backendHost');
 

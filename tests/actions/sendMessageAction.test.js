@@ -1,5 +1,5 @@
-import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/actionTypes';
-import { initMessageSending, sendMessageSuccess, sendMessageFail } from '../../src/actions/sendMessageAction';
+import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from 'actions/actionTypes';
+import { initMessageSending, sendMessageSuccess, sendMessageFail } from 'actions/sendMessageAction';
 
 describe('sendMessageAction.js', () => {
   describe('initMessageSending', () => {

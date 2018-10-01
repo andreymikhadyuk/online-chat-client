@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
-import ChatBody from '../../components/ChatBody';
+import ChatBody from 'components/ChatBody';
 import { MESSAGES_DATA_SLICE_NAME, MESSAGES_META_SLICE_NAME } from '../../consts/sliceNames';
 import { fetchMessages } from '../../actions';
 

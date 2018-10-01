@@ -1,7 +1,7 @@
 import deepFreeze from 'deep-freeze';
-import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from '../../src/actions/actionTypes';
-import { initMessageSending, sendMessageSuccess, sendMessageFail } from '../../src/actions/sendMessageAction';
-import reducer from '../../src/reducers/messagesReducer';
+import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from 'actions/actionTypes';
+import { initMessageSending, sendMessageSuccess, sendMessageFail } from 'actions/sendMessageAction';
+import reducer from 'reducers/messagesReducer';
 
 const initialState = {
   meta: {
