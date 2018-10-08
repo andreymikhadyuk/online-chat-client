@@ -19,23 +19,18 @@ const fetchCurrentUserFail = error => ({
   payload: error,
 });
 
-const fetchCurrentUser = () => (dispatch) => {
+const fetchCurrentUser = () => async (dispatch) => {
   dispatch(initCurrentUserFetching());
-  new Promise((resolve, reject) => {
-    if (localStorage.getItem('token')) {
-      resolve();
-    } else {
-      reject(new Error());
+  try {
+    if (!localStorage.getItem('token')) {
+      throw new Error();
     }
-  })
-    .then(() => UserService.fetchCurrentUser())
-    .then((response) => {
-      dispatch(fetchCurrentUserSuccess(get(response, 'data.user')));
-    })
-    .catch((error) => {
-      dispatch(fetchCurrentUserFail(error));
-      dispatch(push('/login'));
-    });
+    const response = await UserService.fetchCurrentUser();
+    dispatch(fetchCurrentUserSuccess(get(response, 'data.user')));
+  } catch (error) {
+    dispatch(fetchCurrentUserFail(error));
+    dispatch(push('/login'));
+  }
 };
 
 export default fetchCurrentUser;

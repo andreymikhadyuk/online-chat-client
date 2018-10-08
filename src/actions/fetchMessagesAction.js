@@ -14,15 +14,14 @@ const fetchMessagesFail = error => ({
   payload: error,
 });
 
-const fetchMessages = () => (dispatch) => {
+const fetchMessages = () => async (dispatch) => {
   dispatch(initMessageFetching());
-  MessageService.getMessages()
-    .then((response) => {
-      dispatch(fetchMessagesSuccess(get(response, 'data.messages')));
-    })
-    .catch((error) => {
-      dispatch(fetchMessagesFail(error));
-    });
+  try {
+    const response = await MessageService.getMessages();
+    dispatch(fetchMessagesSuccess(get(response, 'data.messages')));
+  } catch (error) {
+    dispatch(fetchMessagesFail(error));
+  }
 };
 
 export default fetchMessages;

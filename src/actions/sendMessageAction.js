@@ -13,15 +13,14 @@ const sendMessageFail = error => ({
   payload: error,
 });
 
-const sendMessage = message => (dispatch, getState) => {
+const sendMessage = message => async (dispatch, getState) => {
   dispatch(initMessageSending());
-  MessageService.sendMessage(message)
-    .then(() => {
-      dispatch(sendMessageSuccess({ ...message, user: getState().user.data }));
-    })
-    .catch((error) => {
-      dispatch(sendMessageFail(error));
-    });
+  try {
+    await MessageService.sendMessage(message);
+    dispatch(sendMessageSuccess({ ...message, user: getState().user.data }));
+  } catch (error) {
+    dispatch(sendMessageFail(error));
+  }
 };
 
 export default sendMessage;

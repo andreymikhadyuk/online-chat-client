@@ -13,18 +13,17 @@ const loginAction = createAction(
 /**
  * @param data - { username, password }
  */
-const login = data => (dispatch) => {
+const login = data => async (dispatch) => {
   dispatch(loginAction(null, { init: true }));
-  ApiService.post('/api/login', data)
-    .then((response) => {
-      const token = get(response, 'data.token');
-      dispatch(loginAction(token));
-      localStorage.setItem('token', token);
-      dispatch(push('/chat'));
-    })
-    .catch((error) => {
-      dispatch(loginAction(error));
-    });
+  try {
+    const response = await ApiService.post('/api/login', data);
+    const token = get(response, 'data.token');
+    dispatch(loginAction(token));
+    localStorage.setItem('token', token);
+    dispatch(push('/chat'));
+  } catch (error) {
+    dispatch(loginAction(error));
+  }
 };
 
 export default login;
