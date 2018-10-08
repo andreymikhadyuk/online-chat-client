@@ -5,6 +5,7 @@ import {
   FETCH_MESSAGES_INIT,
   FETCH_MESSAGES_SUCCESS,
   FETCH_MESSAGES_FAIL,
+  ADD_NEW_MESSAGE,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -29,7 +30,7 @@ const onSuccessMessageSend = ({ meta, data }, { payload }) => {
     isSending: false,
   };
   const newData = [
-    payload,
+    { ...payload },
     ...data,
   ];
   return {
@@ -73,6 +74,14 @@ const fetchMessagesFail = state => ({
   },
 });
 
+const addNewMessage = (state, { payload }) => ({
+  ...state,
+  data: [
+    { ...payload },
+    ...state.data,
+  ],
+});
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE_INIT:
@@ -87,6 +96,8 @@ const reducer = (state = initialState, action) => {
       return fetchMessagesSuccess(state, action);
     case FETCH_MESSAGES_FAIL:
       return fetchMessagesFail(state, action);
+    case ADD_NEW_MESSAGE:
+      return addNewMessage(state, action);
     default:
       return state;
   }

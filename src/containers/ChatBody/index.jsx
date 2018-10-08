@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import get from 'lodash/get';
 import ChatBody from 'components/ChatBody';
 import { MESSAGES_DATA_SLICE_NAME, MESSAGES_META_SLICE_NAME } from '../../consts/sliceNames';
-import { fetchMessages } from '../../actions';
+import { fetchMessages, subscribeToNewMessages } from '../../actions';
 
 class ChatBodyContainer extends Component {
   componentDidMount() {
+    this.props.subscribeToNewMessages();
     this.props.fetchMessages();
     this.scrollToBottom();
   }
@@ -39,6 +40,7 @@ ChatBodyContainer.propTypes = {
   messages: PropTypes.array.isRequired,
   messagesMeta: PropTypes.object.isRequired,
   fetchMessages: PropTypes.func.isRequired,
+  subscribeToNewMessages: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -46,4 +48,7 @@ const mapStateToProps = state => ({
   messagesMeta: get(state, MESSAGES_META_SLICE_NAME),
 });
 
-export default connect(mapStateToProps, { fetchMessages })(ChatBodyContainer);
+export default connect(
+  mapStateToProps,
+  { fetchMessages, subscribeToNewMessages }
+)(ChatBodyContainer);

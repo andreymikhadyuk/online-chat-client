@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { FETCH_MESSAGES_INIT, FETCH_MESSAGES_SUCCESS, FETCH_MESSAGES_FAIL } from './actionTypes';
-import MessageService from '../services/MessageService';
+import { MessageService } from '../services';
 
 const initMessageFetching = () => ({ type: FETCH_MESSAGES_INIT });
 

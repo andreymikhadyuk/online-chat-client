@@ -1,5 +1,5 @@
 import { SEND_MESSAGE_INIT, SEND_MESSAGE_SUCCESS, SEND_MESSAGE_FAIL } from './actionTypes';
-import MessageService from '../services/MessageService';
+import { MessageService } from '../services';
 
 const initMessageSending = () => ({ type: SEND_MESSAGE_INIT });
 

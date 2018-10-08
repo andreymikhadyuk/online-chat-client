@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
-import fetchCurrentUser from '../../actions/fetchCurrentUserAction';
+import { fetchCurrentUser } from '../../actions';
 
 class Page extends Component {
   constructor(props) {
